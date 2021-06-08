@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-learning
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/RobinNagpal/argo-learning.git
+    targetRevision: HEAD
+    path: /
+  destination:
+    server: https://6E610F2AB43F508CA3568A7F4D78714B.yl4.us-east-1.eks.amazonaws.com
+    namespace: jomo

@@ -11,6 +11,10 @@ backend/.idea/*
 */**/local_kube_config.yaml.eksctl.lock
 
 */**/hidden.csv
+
+credentials.csv
+*/**/credentials.csv
+
 */**/hidden.txt
 */**/hidden.md
 */**/.terraform
