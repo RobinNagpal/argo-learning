@@ -1,10 +1,5 @@
-backend/.gradle/*
-backend/build/*
-/sql/.gradle
-backend/.idea/*
 .idea/*
 *.iml
-.gradle/*
 
 */**/.envrc
 */**/local_kube_config.yaml
@@ -22,11 +17,6 @@ credentials.csv
 
 .DS_Store
 
-/backend/schema*.sql
+node_modules/
 
 
-/sql/gradle/
-/sql/gradlew
-/sql/gradlew.bat
-
-/backend/out

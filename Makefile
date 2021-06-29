@@ -58,7 +58,7 @@ argo_port_fwd:
 	kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 argo_get_pwd:
-	kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+	kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
 
 argo_create_project:
 	kubectl apply -f argo_project.yaml
