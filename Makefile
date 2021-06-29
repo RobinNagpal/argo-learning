@@ -48,10 +48,31 @@ deploy_application:
 delete_application:
 	kustomize build ./k8s | kubectl delete -f -
 
+####  Argocd Commands Below ######
 
+argo_install:
+	kubectl create namespace argocd
+	kubectl apply -n argocd -f k8s/argocd/argocd-install.yaml
 
 argo_port_fwd:
 	kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 argo_get_pwd:
 	kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+argo_create_project:
+	kubectl apply -f argo_project.yaml
+
+argo_create_foo_application:
+	kubectl apply -f argo_foo_application.yaml
+
+just_do_it:
+	make create_cluster
+	make argo_install
+	make argo_create_project
+	make argo_create_foo_application
+
+
+replace_server_url:
+	SERVER_URL="$$(yq r local_kube_config.yaml clusters.[0].cluster.server)"; \
+	yq w -i argo_foo_application.yaml 'spec.destination.server' $$SERVER_URL;

@@ -1,7 +1,29 @@
 apiVersion: v1
-clusters: null
-contexts: null
-current-context: ""
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM1ekNDQWMrZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1EWXlPVEE0TkRFek4xb1hEVE14TURZeU56QTROREV6TjFvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTEwvCkFjRWpUM1M2dEEyTGVjS0lZQ0xkQmpEeEQxcDVuandLRDZsb2svdkM2d2dMaEtDbit5Mm9JYWpaVkl4RUpUVmUKeHlIUFI4UGQzUXgyK2xMc0YrVklYUE90RDByd0hvcnFkNDNkcm9CbDRORTRNbUpSaTBqVzRPQzBZU2RSNmVEZgpDK3F1dEkxZitlRHV0UlkrcHk5dnB5NWs0WTg5UkxRYVBkRFJDMUswZTQ1UXVlVitTdml5a3pwdWgxanYra1FrCk1KL29mRFI4RUVmcGZhMExGYWU5U3RqMWpRZXh5SnU1ek9QWWR1Vzl6MVBSdGVQMGZoenVpWG00Yk80U0R5bGsKSlhMUFJ4VjNZSFlmc200a0VzVVdYTWtOMGk3MjBSQ2FSUWphVURCQzRVb0t4dS9RSmNITzJFUG8wSEdUQW92MgpCbjlaanN4NndRU252eVAxNzZrQ0F3RUFBYU5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZPZmZCRk55MTZQZFMxNlJJODRjUVVzOXVvSllNQTBHQ1NxR1NJYjMKRFFFQkN3VUFBNElCQVFBeGI3NE1aVlVhVHh1cDVad29Cd3V4NC9kWHJRUU9zclFHZVUzUi8wNDBxbGl0U1VBbwpHSHUzcmZQNWNaUUtIZGRoRnhXdzY0citCVERzaC9ScTVVZHBua09xN05FQ2dSaHJueTlocGhYbkhvNFNYOVhuCm5pMUUyRzRzRWh4N3hxeEFKU1FTbW1lSTdlNEVmZ0hFY25pRW52bEhxNUlJM3pOdm96ODZrVG1pdW1nQURmSlkKT3I4a1g2SjVpUGdURVJNQjgzZ1NZU3BBZjhhOTRIbm1FSVRXdC9BVnU2U0xYdVU3SWhNSUFrUTkzbG1lNklKNwphcmxuZ29rNXVUSzFYUisvS1RHVGlCNm9Pb1B1bnpPQWJ6cnJCVDUzbnJqL3dYMC9mQW5UNWkzdnUzS010Q2JKCkNsOHZzKzh5TGRFdTNEWTlzNUhteS9CTFdvdWkvWHhiNEx3YQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    server: https://04FC8595B46BA797B6AFD5D801C0B3CD.gr7.us-east-1.eks.amazonaws.com
+  name: robin-personal-cluster.us-east-1.eksctl.io
+contexts:
+- context:
+    cluster: robin-personal-cluster.us-east-1.eksctl.io
+    user: argo-learning@robin-personal-cluster.us-east-1.eksctl.io
+  name: argo-learning@robin-personal-cluster.us-east-1.eksctl.io
+current-context: argo-learning@robin-personal-cluster.us-east-1.eksctl.io
 kind: Config
 preferences: {}
-users: null
+users:
+- name: argo-learning@robin-personal-cluster.us-east-1.eksctl.io
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - token
+      - -i
+      - robin-personal-cluster
+      command: aws-iam-authenticator
+      env:
+      - name: AWS_STS_REGIONAL_ENDPOINTS
+        value: regional
+      - name: AWS_DEFAULT_REGION
+        value: us-east-1
