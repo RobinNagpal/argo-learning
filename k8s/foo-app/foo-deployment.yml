@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foo-backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: foo-app
+  template:
+    metadata:
+      labels:
+        app: foo-app
+    spec:
+      containers:
+        - name: foo-app
+          image: robinnagpal/argo-learning-foo-app:2b68eca
+          env:
+            - name: APP_NAME
+              value: foo

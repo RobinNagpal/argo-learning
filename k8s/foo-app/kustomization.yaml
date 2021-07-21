@@ -1,0 +1,3 @@
+resources:
+  - foo-deployment.yml
+  - foo-service.yml

@@ -3,7 +3,7 @@ kind: ClusterConfig
 
 metadata:
   name: robin-personal-cluster
-  region: us-east-1
+  region: us-east-2
 
 nodeGroups:
   - name: ng-1

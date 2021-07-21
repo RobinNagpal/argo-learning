@@ -1,4 +1,4 @@
 resources:
-  - k8s/argocd_app/argo_project.yaml
-  - k8s/argocd_app/argo_foo_application.yaml
-  - k8s/argocd_app/argo_bar_application.yaml
+  - k8s/argocd-app/argo_project.yaml
+  - k8s/argocd-app/argo_foo_application.yaml
+  - k8s/argocd-app/argo_bar_application.yaml

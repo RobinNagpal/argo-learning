@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bar-backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bar-app
+  template:
+    metadata:
+      labels:
+        app: bar-app
+    spec:
+      containers:
+        - name: bar-app
+          image: robinnagpal/argo-learning-bar-app:85b4c76
+          env:
+            - name: APP_NAME
+              value: bar
